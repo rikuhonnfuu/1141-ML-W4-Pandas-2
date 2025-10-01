@@ -10,10 +10,11 @@ def load_and_explore_data(file_path):
     df = pd.read_csv(file_path, encoding='utf-8-sig')
 
     # TODO 1.1: 顯示前 5 筆資料
-    
+    df.head(5)
+
 
     # TODO 1.2: 查看資料結構（欄位、型態、缺失值）
-    
+    df.info()
     return df
 
 def feature_engineering(df):
@@ -35,7 +36,6 @@ def filter_and_analyze_data(df):
     
     # TODO 3.1: 找出數學成績 < 60 的學生
     math_failed =  df[df['數學']<60]
-    print(math_failed)
 
     # TODO 3.2: 找出班級為 'A' 且英文 > 90 的學生
     high_A =  df[(df['英文']>90) & (df['班級']=='A')]
@@ -46,7 +46,6 @@ def filter_and_analyze_data(df):
     # TODO 4.2: 找出總分最高的學生
     max_total = df['總分'].max()
     top_student = df[df['總分']==int(max_total)]
-    print(max_total,top_student)
 
 
     # 回傳 dict，方便 pytest 檢查每個任務
